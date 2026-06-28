@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+dist/
+build/
+.pytest_cache/
+# cloned/downloaded real-world projects (see tests/fixtures/README.md)
+tests/fixtures/*/
