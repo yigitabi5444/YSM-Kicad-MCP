@@ -16,16 +16,36 @@ It only reads. There are no tools that edit, place, route, or export.
 
 ## How to install
 
-Requires KiCad 10+ and [uv](https://docs.astral.sh/uv/). Register the server
-with Claude Code:
+Requires KiCad 10+ and [uv](https://docs.astral.sh/uv/).
+
+**Claude Code:**
 
 ```bash
 claude mcp add kicad-context -- \
   uvx --from git+https://github.com/yigitabi5444/YSM-Kicad-MCP kicad-context-mcp
 ```
 
+**Claude Desktop:** add this to `claude_desktop_config.json` (Settings →
+Developer → Edit Config), then restart:
+
+```json
+{
+  "mcpServers": {
+    "kicad-context": {
+      "command": "uvx",
+      "args": [
+        "--from",
+        "git+https://github.com/yigitabi5444/YSM-Kicad-MCP",
+        "kicad-context-mcp"
+      ]
+    }
+  }
+}
+```
+
 Pass a project path to any tool to use it. If `kicad-cli` is not on your `PATH`,
-add `-e KICAD_CLI=/path/to/kicad-cli` to the command above.
+add `-e KICAD_CLI=/path/to/kicad-cli` (Claude Code) or an `"env": {"KICAD_CLI":
+"/path/to/kicad-cli"}` block (Claude Desktop).
 
 ## Exposed tools
 
