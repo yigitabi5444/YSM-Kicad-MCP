@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "kicad-context": {
+      "command": "${CLAUDE_PLUGIN_ROOT}/bin/kicad-context-mcp",
+      "args": []
+    }
+  }
+}

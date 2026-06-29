@@ -1,0 +1,8 @@
+{
+  "name": "kicad-context",
+  "description": "Read-only MCP server for understanding KiCad projects",
+  "version": "0.1.0",
+  "author": { "name": "Yigit Kilicarslan" },
+  "homepage": "https://github.com/yigitabi5444/YSM-Kicad-MCP",
+  "license": "MIT"
+}

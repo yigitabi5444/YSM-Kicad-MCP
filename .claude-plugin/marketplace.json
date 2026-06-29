@@ -1,0 +1,13 @@
+{
+  "name": "ysm",
+  "description": "KiCad tooling for AI agents",
+  "owner": { "name": "Yigit Kilicarslan" },
+  "plugins": [
+    {
+      "name": "kicad-context",
+      "source": "./",
+      "description": "Read-only MCP server for understanding KiCad projects",
+      "version": "0.1.0"
+    }
+  ]
+}

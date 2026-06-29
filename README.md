@@ -16,29 +16,21 @@ It only reads. There are no tools that edit, place, route, or export.
 
 ## How to install
 
-Requires KiCad 10+ and [uv](https://docs.astral.sh/uv/).
-
-**Claude Code:**
-
-```bash
-claude mcp add kicad-context -- \
-  uvx --from git+https://github.com/yigitabi5444/YSM-Kicad-MCP kicad-context-mcp
-```
-
-**Claude Desktop (macOS, Apple Silicon):** download
-[`kicad-context-darwin-arm64.mcpb`](https://github.com/yigitabi5444/YSM-Kicad-MCP/releases/latest/download/kicad-context-darwin-arm64.mcpb)
-and open it (Settings → Extensions, then drag it in). It's a self-contained
+Requires only KiCad 10+ (for `kicad-cli`). The plugin ships a self-contained
 binary — no Python, uv, or network needed.
 
-If macOS blocks it as unverified, clear the quarantine flag once:
+Installed as a plugin, which works in both Claude Code and Claude Desktop. Add
+the marketplace, then install:
 
-```bash
-xattr -dr com.apple.quarantine ~/Library/Application\ Support/Claude/Claude\ Extensions/local.dxt.*kicad-context*
+```
+/plugin marketplace add yigitabi5444/YSM-Kicad-MCP
+/plugin install kicad-context@ysm
 ```
 
-Other platforms: build a bundle for your OS with `bash mcpb/build.sh`.
-
 Pass a project path to any tool to use it.
+
+The shipped binary is macOS (Apple Silicon). On another platform, run
+`bash build.sh` to rebuild `bin/kicad-context-mcp` for your OS.
 
 ## Exposed tools
 
