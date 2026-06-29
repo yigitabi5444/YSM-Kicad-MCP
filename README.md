@@ -16,28 +16,16 @@ It only reads. There are no tools that edit, place, route, or export.
 
 ## How to install
 
-Requires KiCad 10+ (for `kicad-cli`) and [uv](https://docs.astral.sh/uv/).
-
-```bash
-brew install --cask kicad          # macOS. Linux: sudo apt install kicad
-```
-
-Register the server with Claude Code:
+Requires KiCad 10+ and [uv](https://docs.astral.sh/uv/). Register the server
+with Claude Code:
 
 ```bash
 claude mcp add kicad-context -- \
   uvx --from git+https://github.com/yigitabi5444/YSM-Kicad-MCP kicad-context-mcp
 ```
 
-Set a default project so you don't pass a path to every call (optional — every
-tool also takes a `project` argument):
-
-```bash
-claude mcp add kicad-context -e KICAD_PROJECT=/path/to/project -- \
-  uvx --from git+https://github.com/yigitabi5444/YSM-Kicad-MCP kicad-context-mcp
-```
-
-If `kicad-cli` is not on your `PATH`, add `-e KICAD_CLI=/path/to/kicad-cli`.
+Pass a project path to any tool to use it. If `kicad-cli` is not on your `PATH`,
+add `-e KICAD_CLI=/path/to/kicad-cli` to the command above.
 
 ## Exposed tools
 
