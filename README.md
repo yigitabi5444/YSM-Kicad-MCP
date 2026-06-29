@@ -26,13 +26,15 @@ claude mcp add kicad-context -- \
 ```
 
 **Claude Desktop:** add this to `claude_desktop_config.json` (Settings →
-Developer → Edit Config), then restart:
+Developer → Edit Config), then restart. Use the **absolute path** to `uvx` —
+the desktop app does not inherit your shell `PATH`. Find it with `which uvx`
+(commonly `/opt/homebrew/bin/uvx` on macOS).
 
 ```json
 {
   "mcpServers": {
     "kicad-context": {
-      "command": "uvx",
+      "command": "/opt/homebrew/bin/uvx",
       "args": [
         "--from",
         "git+https://github.com/yigitabi5444/YSM-Kicad-MCP",
