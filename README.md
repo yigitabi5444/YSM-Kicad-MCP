@@ -19,13 +19,21 @@ It only reads. There are no tools that edit, place, route, or export.
 Requires only KiCad 10+ (for `kicad-cli`). The plugin ships a self-contained
 binary — no Python, uv, or network needed.
 
-Installed as a plugin, which works in both Claude Code and Claude Desktop. Add
-the marketplace, then install:
+Installed as a plugin from this repo's marketplace.
+
+**Claude Code:**
 
 ```
 /plugin marketplace add yigitabi5444/YSM-Kicad-MCP
 /plugin install kicad-context@ysm
 ```
+
+**Claude Desktop / web:**
+
+1. Open the **Customize** menu in the left sidebar → **Plugins** tab.
+2. Under **Personal plugins**, click **+** → **Add marketplace** → **Add from a
+   repository**, and enter `yigitabi5444/YSM-Kicad-MCP`.
+3. Click **Browse plugins**, find **kicad-context**, and click **Install**.
 
 Pass a project path to any tool to use it.
 
