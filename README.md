@@ -25,11 +25,18 @@ claude mcp add kicad-context -- \
   uvx --from git+https://github.com/yigitabi5444/YSM-Kicad-MCP kicad-context-mcp
 ```
 
-**Claude Desktop:** download
-[`kicad-context.mcpb`](https://github.com/yigitabi5444/YSM-Kicad-MCP/releases/latest/download/kicad-context.mcpb)
-and open it (Settings → Extensions, then drag it in). On install it asks for the
-path to `uvx` — run `which uvx` to get it (usually `/opt/homebrew/bin/uvx` on
-macOS), since the desktop app does not inherit your shell `PATH`.
+**Claude Desktop (macOS, Apple Silicon):** download
+[`kicad-context-darwin-arm64.mcpb`](https://github.com/yigitabi5444/YSM-Kicad-MCP/releases/latest/download/kicad-context-darwin-arm64.mcpb)
+and open it (Settings → Extensions, then drag it in). It's a self-contained
+binary — no Python, uv, or network needed.
+
+If macOS blocks it as unverified, clear the quarantine flag once:
+
+```bash
+xattr -dr com.apple.quarantine ~/Library/Application\ Support/Claude/Claude\ Extensions/local.dxt.*kicad-context*
+```
+
+Other platforms: build a bundle for your OS with `bash mcpb/build.sh`.
 
 Pass a project path to any tool to use it.
 

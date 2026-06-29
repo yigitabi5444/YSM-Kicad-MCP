@@ -4,7 +4,7 @@
   "display_name": "KiCad Context",
   "version": "0.1.0",
   "description": "Read-only MCP server for understanding KiCad projects",
-  "long_description": "Point it at a KiCad project and an agent can answer what the board is and what's wrong with it, without loading the whole design into context. Seven read-only tools with hard output budgets. Requires KiCad 10+ and uv on the system.",
+  "long_description": "Point it at a KiCad project and an agent can answer what the board is and what's wrong with it, without loading the whole design into context. Seven read-only tools with hard output budgets. Self-contained binary; requires KiCad 10+ (kicad-cli) on the system.",
   "author": {
     "name": "Yigit Kilicarslan"
   },
@@ -21,24 +21,23 @@
     "hardware"
   ],
   "user_config": {
-    "uvx_path": {
+    "kicad_cli": {
       "type": "string",
-      "title": "Path to uvx",
-      "description": "Absolute path to the uvx binary. Run `which uvx` in a terminal; usually /opt/homebrew/bin/uvx on macOS.",
-      "default": "/opt/homebrew/bin/uvx",
-      "required": true
+      "title": "Path to kicad-cli (optional)",
+      "description": "Leave blank to auto-detect (/Applications/KiCad or ~/Applications). Set only if kicad-cli is installed elsewhere.",
+      "default": "",
+      "required": false
     }
   },
   "server": {
     "type": "binary",
-    "entry_point": "kicad-context-mcp",
+    "entry_point": "server/kicad-context-mcp",
     "mcp_config": {
-      "command": "${user_config.uvx_path}",
-      "args": [
-        "--from",
-        "git+https://github.com/yigitabi5444/YSM-Kicad-MCP",
-        "kicad-context-mcp"
-      ]
+      "command": "${__dirname}/server/kicad-context-mcp",
+      "args": [],
+      "env": {
+        "KICAD_CLI": "${user_config.kicad_cli}"
+      }
     }
   }
 }
