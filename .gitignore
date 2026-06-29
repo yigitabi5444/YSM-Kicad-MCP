@@ -8,3 +8,6 @@ build/
 .pytest_cache/
 # cloned/downloaded real-world projects (see tests/fixtures/README.md)
 tests/fixtures/*/
+
+# built desktop extension (distributed via GitHub releases)
+*.mcpb

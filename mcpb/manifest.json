@@ -1,0 +1,44 @@
+{
+  "manifest_version": "0.2",
+  "name": "kicad-context",
+  "display_name": "KiCad Context",
+  "version": "0.1.0",
+  "description": "Read-only MCP server for understanding KiCad projects",
+  "long_description": "Point it at a KiCad project and an agent can answer what the board is and what's wrong with it, without loading the whole design into context. Seven read-only tools with hard output budgets. Requires KiCad 10+ and uv on the system.",
+  "author": {
+    "name": "Yigit Kilicarslan"
+  },
+  "homepage": "https://github.com/yigitabi5444/YSM-Kicad-MCP",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yigitabi5444/YSM-Kicad-MCP"
+  },
+  "license": "MIT",
+  "keywords": [
+    "kicad",
+    "eda",
+    "pcb",
+    "hardware"
+  ],
+  "user_config": {
+    "uvx_path": {
+      "type": "string",
+      "title": "Path to uvx",
+      "description": "Absolute path to the uvx binary. Run `which uvx` in a terminal; usually /opt/homebrew/bin/uvx on macOS.",
+      "default": "/opt/homebrew/bin/uvx",
+      "required": true
+    }
+  },
+  "server": {
+    "type": "binary",
+    "entry_point": "kicad-context-mcp",
+    "mcp_config": {
+      "command": "${user_config.uvx_path}",
+      "args": [
+        "--from",
+        "git+https://github.com/yigitabi5444/YSM-Kicad-MCP",
+        "kicad-context-mcp"
+      ]
+    }
+  }
+}

@@ -25,29 +25,13 @@ claude mcp add kicad-context -- \
   uvx --from git+https://github.com/yigitabi5444/YSM-Kicad-MCP kicad-context-mcp
 ```
 
-**Claude Desktop:** add this to `claude_desktop_config.json` (Settings →
-Developer → Edit Config), then restart. Use the **absolute path** to `uvx` —
-the desktop app does not inherit your shell `PATH`. Find it with `which uvx`
-(commonly `/opt/homebrew/bin/uvx` on macOS).
+**Claude Desktop:** download
+[`kicad-context.mcpb`](https://github.com/yigitabi5444/YSM-Kicad-MCP/releases/latest/download/kicad-context.mcpb)
+and open it (Settings → Extensions, then drag it in). On install it asks for the
+path to `uvx` — run `which uvx` to get it (usually `/opt/homebrew/bin/uvx` on
+macOS), since the desktop app does not inherit your shell `PATH`.
 
-```json
-{
-  "mcpServers": {
-    "kicad-context": {
-      "command": "/opt/homebrew/bin/uvx",
-      "args": [
-        "--from",
-        "git+https://github.com/yigitabi5444/YSM-Kicad-MCP",
-        "kicad-context-mcp"
-      ]
-    }
-  }
-}
-```
-
-Pass a project path to any tool to use it. If `kicad-cli` is not on your `PATH`,
-add `-e KICAD_CLI=/path/to/kicad-cli` (Claude Code) or an `"env": {"KICAD_CLI":
-"/path/to/kicad-cli"}` block (Claude Desktop).
+Pass a project path to any tool to use it.
 
 ## Exposed tools
 
